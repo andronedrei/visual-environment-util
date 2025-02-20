@@ -1,0 +1,140 @@
+/* Minimal styling */
+* {
+  color: aliceblue;
+  font-family: Liberation Mono;
+  font-size: 16px;
+
+  border-radius: 0;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#custom-app_launcher {
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 8px;
+  border-radius: 8px 0px 0px 8px;
+
+  transition: none;
+  background-color: rgb(14, 14, 16);
+  border-right: 1px solid aliceblue;
+}
+
+#custom-script_launcher {
+  padding-left: 8px;
+  padding-right: 10px;
+  border-radius: 0px 8px 8px 0px;
+
+  transition: none;
+  background-color: rgb(14, 14, 16);
+}
+
+#workspaces {
+  margin-left: 8px;
+  margin-right: 8px;
+  transition: none;
+  background: transparent;
+}
+
+#workspaces button {
+  background-color: rgb(14, 14, 16);
+}
+
+#workspaces button:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+#workspaces button:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+#workspaces button.active {
+  background-color: rgb(45, 45, 75);
+}
+
+#custom-cpu_icon {
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 8px 0px 0px 8px;
+
+  transition: none;
+  background-image: url("/home/andrei/.config/waybar/icons/cpu.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#cpu {
+  padding-left: 5px;
+  padding-right: 8px;
+
+  transition: none;
+  background-color: rgb(14, 14, 16);
+  border-right: 1px solid aliceblue;
+}
+
+#memory {
+  padding-left: 8px;
+  padding-right: 5px;
+
+  transition: none;
+  background-color: rgb(14, 14, 16);
+}
+
+#custom-mem_icon {
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 0px 8px 8px 0px;
+
+  transition: none;
+  background-image: url("/home/andrei/.config/waybar/icons/mem.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#user {
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 8px 8px 8px 8px;
+
+  background-color: rgb(14, 14, 16);
+}
+
+#network {
+  padding-left: 5px;
+  padding-right: 15px;
+  border-radius: 8px 0px 0px 8px;
+
+  background-color: rgb(14, 14, 16);
+}
+
+#custom-brightness, #pulseaudio {
+  padding-left: 15px;
+  padding-right: 15px;
+
+  background-color: rgb(14, 14, 16);
+}
+
+#clock {
+  padding-left: 15px;
+  padding-right: 5px;
+  border-radius: 0px 8px 8px 0px;
+
+  background-color: rgb(14, 14, 16);
+}
+
+#custom-power {
+  margin-left: 10px;
+  padding: 4px;
+  border-radius: 8px;
+
+  background-color: rgb(14, 14, 16);
+}
