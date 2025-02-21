@@ -1,0 +1,2 @@
+// selecting one of the already defined themes
+@theme "/usr/share/rofi/themes/fullscreen-preview.rasi"

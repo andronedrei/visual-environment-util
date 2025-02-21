@@ -30,13 +30,13 @@
   "custom/app_launcher": {
     "exec": "echo 'Apps'",
     "interval": -1,
-    "on-click": "wofi"
+    "on-click": "rofi -show drun"
   },
 
   "custom/script_launcher": {
     "exec": "echo 'Scripts'",
     "interval": -1,
-    "on-click": "echo 'Not implemented'"
+    "on-click": "/home/andrei/.veu-toolbox/run-computer-script.sh"
   },
 
   "custom/cpu_icon": {
