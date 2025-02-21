@@ -10,7 +10,8 @@ if [ -z "$themes" ]; then
 fi
 
 # We select theme option
-selection=$(echo -e "$themes" | rofi -dmenu)
+selection=$(echo -e "$themes" | rofi -dmenu -theme ~/.config/rofi/custom/default.rasi)
+#selection=$(echo -e "$themes" | rofi -dmenu)
 
 # in case this theme was already selected we do nothing
 if echo "$selection" | grep -q "\*"; then
@@ -29,6 +30,8 @@ cd ..
 
 rm ~/.config/waybar
 ln -s "$(pwd)/configs/waybar/$selection" ~/.config/waybar
+rm ~/.config/rofi/custom
+ln -s "$(pwd)/configs/rofi/$selection" ~/.config/rofi/custom
 
 cd environment-util-scripts
 
