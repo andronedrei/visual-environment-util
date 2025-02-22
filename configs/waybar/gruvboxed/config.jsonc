@@ -23,7 +23,8 @@
         "memory",
         "battery",
         "network",
-        "pulseaudio"
+        "pulseaudio",
+        "custom/script_launcher"
     ],
 
     "hyprland/workspaces": {
@@ -83,6 +84,13 @@
         "format-bluetooth": "vol {volume}%",
         "nospacing": 1,
         "on-click": "pavucontrol",
+        "tooltip": false
+    },
+
+    "custom/script_launcher": {
+        "exec": "echo 'Scripts'",
+        "interval": -1,
+        "on-click": "/home/andrei/.veu-toolbox/run-computer-script.sh",
         "tooltip": false
     }
 }

@@ -53,7 +53,7 @@ rm ~/.veu-toolbox
 ln -s "$cur_loc" ~/.veu-toolbox
 
 # update path for essential scripts from this utility that are also used by "run-computer-script.sh"
-nr_veu_scripts="2"
+nr_veu_scripts="3"
 veu_essential=$(head -n "$nr_veu_scripts" ~/.veu-toolbox/computer-scripts-list)
 others=$(tail -n +"$((nr_veu_scripts + 1))" ~/.veu-toolbox/computer-scripts-list)
 

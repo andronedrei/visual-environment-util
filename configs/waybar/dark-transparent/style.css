@@ -21,7 +21,6 @@ window#waybar.hidden {
   padding-right: 8px;
   border-radius: 8px 0px 0px 8px;
 
-  transition: none;
   background-color: rgb(14, 14, 16);
   border-right: 1px solid aliceblue;
 }
@@ -31,14 +30,12 @@ window#waybar.hidden {
   padding-right: 10px;
   border-radius: 0px 8px 8px 0px;
 
-  transition: none;
   background-color: rgb(14, 14, 16);
 }
 
 #workspaces {
   margin-left: 8px;
   margin-right: 8px;
-  transition: none;
   background: transparent;
 }
 
@@ -63,7 +60,6 @@ window#waybar.hidden {
   padding-right: 8px;
   border-radius: 8px 0px 0px 8px;
 
-  transition: none;
   background-image: url("/home/andrei/.config/waybar/icons/cpu.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -74,7 +70,6 @@ window#waybar.hidden {
   padding-left: 5px;
   padding-right: 8px;
 
-  transition: none;
   background-color: rgb(14, 14, 16);
   border-right: 1px solid aliceblue;
 }
@@ -83,7 +78,6 @@ window#waybar.hidden {
   padding-left: 8px;
   padding-right: 5px;
 
-  transition: none;
   background-color: rgb(14, 14, 16);
 }
 
@@ -92,7 +86,6 @@ window#waybar.hidden {
   padding-right: 8px;
   border-radius: 0px 8px 8px 0px;
 
-  transition: none;
   background-image: url("/home/andrei/.config/waybar/icons/mem.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -109,23 +102,36 @@ window#waybar.hidden {
 }
 
 #network {
-  padding-left: 5px;
+  padding-left: 10px;
   padding-right: 15px;
   border-radius: 8px 0px 0px 8px;
 
   background-color: rgb(14, 14, 16);
+  border-right: 0.5px solid aliceblue;
 }
 
-#custom-brightness, #pulseaudio {
+#battery, #pulseaudio {
+  padding-left: 8px;
+  padding-right: 8px;
+
+  background-color: rgb(14, 14, 16);
+  border-right: 0.5px solid aliceblue;
+}
+
+#custom-monitor {
   padding-left: 15px;
   padding-right: 15px;
 
-  background-color: rgb(14, 14, 16);
+  background-image: url("/home/andrei/.config/waybar/icons/monitor-settings.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-right: 0.5px solid aliceblue;
 }
 
 #clock {
-  padding-left: 15px;
-  padding-right: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
   border-radius: 0px 8px 8px 0px;
 
   background-color: rgb(14, 14, 16);

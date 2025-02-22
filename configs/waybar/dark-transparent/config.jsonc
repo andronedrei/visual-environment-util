@@ -21,60 +21,96 @@
 
   "modules-right": [
     "network",
-    "custom/brightness",
+    "battery",
+    "custom/monitor",
     "pulseaudio",
     "clock",
     "custom/power"
   ],
 
+  "image#arch_menu": {
+    "path": "/home/andrei/.config/waybar/icons/arch_menu.png",
+    "size": 30,
+    "on-click": "rofi -show drun",
+    "interval": -1
+  },
+
   "custom/app_launcher": {
     "exec": "echo 'Apps'",
     "interval": -1,
-    "on-click": "rofi -show drun"
+    "on-click": "rofi -show drun",
+    "tooltip": false
   },
 
   "custom/script_launcher": {
     "exec": "echo 'Scripts'",
     "interval": -1,
-    "on-click": "/home/andrei/.veu-toolbox/run-computer-script.sh"
+    "on-click": "/home/andrei/.veu-toolbox/run-computer-script.sh",
+    "tooltip": false
   },
 
   "custom/cpu_icon": {
     "format":"  ",
-    "tooltip": false
+    "tooltip": false,
+    "interval": -1
   },
 
   "custom/mem_icon": {
     "format":"  ",
-    "tooltip": false
-  },
-
-  "image#arch_menu": {
-    "path": "/home/andrei/.config/waybar/icons/arch_menu.png",
-    "size": 30,
-    "on-click": "wofi"
+    "tooltip": false,
+    "interval": -1
   },
  
   "network": {
     "format-disconnected": "❌ No Network",
-    "format-wifi": "📡 {essid} ↑{bandwidthUpBits} ↓{bandwidthDownBits}",
+    "format-wifi": " {essid} ↑{bandwidthUpBits} ↓{bandwidthDownBits}",
     "format-ethernet": "🖧 {ifname} ↑{bandwidthUpBits} ↓{bandwidthDownBits}",
     "tooltip-format": "{ifname} - {ipaddr}",
-    "interval": 1
+    "max-length": 27,
+    "min-length": 27,
+    "interval": 3,
+    "tooltip": false
   },
 
-  "custom/brightness": { 
-    "exec": "/home/andrei/.config/hypr/waybar/brightness.sh ?",
-    "format": "🔆 {}%",
-    "on-click": "/home/andrei/.config/hypr/waybar/brightness.sh +",
-    "on-click-right": "ddcutil setvcp 10 20",
-    "interval": 1
+  "battery": {
+    "bat": "BAT2",
+    "interval": 60,
+    "states": {
+        "warning": 30,
+        "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""],
+    "max-length": 25,
+    "tooltip": false
+  },
+
+  "custom/monitor": { 
+    "format":" ",
+    "on-click": "/home/andrei/.config/waybar/scripts/monitor-settings.sh",
+    "tooltip": false,
+    "interval": -1
+  },
+
+  "pulseaudio": {
+    "format": " {volume}%",
+    "on-click": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-click-right": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+    "tooltip": false
+  },
+
+  "clock": {
+    "interval": 60,
+    "format": "{:%H:%M}",
+    "length": 25,
+    "tooltip": false
   },
 
   "custom/power": {
     "exec": "echo '⏻'",
     "format": " {} ",
     "on-click": "/home/andrei/.config/waybar/scripts/exit.sh",
-    "interval": -1
+    "interval": -1,
+    "tooltip": false
   }
 }
