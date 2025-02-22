@@ -5,8 +5,8 @@ themes=$(cat ~/.veu-toolbox/themes-list)
 
 # in case it was lost we restore it from backup
 if [ -z "$themes" ]; then
-    themes=$(cat ~/.veu-toolbox/themes-list.backup)
-    echo "$themes" > ~/.veu-toolbox/themes-list
+  themes=$(cat ~/.veu-toolbox/.themes-list.backup)
+  echo "$themes" > ~/.veu-toolbox/themes-list
 fi
 
 # We select theme option
@@ -18,21 +18,19 @@ fi
 
 # in case this theme was already selected we do nothing
 if echo "$selection" | grep -q "\*"; then
-    exit 0
+  exit 0
 fi
 
 # we delete "*"(mark symbol) from previous selection and add it to the new one
 themes=$(echo "$themes" | sed "s/ \*//g" | sed "s/$selection/$selection \*/g")
 echo "$themes" > ~/.veu-toolbox/themes-list
 
+base_dir=$(cat ~/.veu-toolbox/.main-dir-location)
+
 # we add the necessary links to use this theme for configuration
-cd ..
-
 rm ~/.config/waybar
-ln -s "$(pwd)/configs/waybar/$selection" ~/.config/waybar
+ln -s "$base_dir/configs/waybar/$selection" ~/.config/waybar
 rm ~/.config/rofi
-ln -s "$(pwd)/configs/rofi/$selection" ~/.config/rofi
-
-cd veu-toolbox
+ln -s "$base_dir/configs/rofi/$selection" ~/.config/rofi
 
 pkill waybar && hyprctl dispatch exec waybar

@@ -1,0 +1,141 @@
+#uses NotoEmojiFonts
+add_newline = true
+palette = "my_palette"
+
+format = """
+[ ◥](fg:color_0)\
+$username\
+[◣](fg:color_0 bg:color_11)\
+$time\
+[◣](fg:color_11 bg:color_12)\
+$c\
+$python\
+$java\
+$golang\
+$dart\
+[◣](fg:color_12 bg:color_13)\
+$cmd_duration\
+[◣](fg:color_13)
+[  ◥█](fg:color_0)\
+[◣](fg:color_0 bg:color_21)\
+$directory\
+[◣](fg:color_21 bg:color_22)\
+$git_branch\
+[◣](fg:color_22 bg:color_23)\
+$git_status\
+[◣](fg:color_23 bg:color_24)\
+$docker_context\
+[◣](fg:color_24)
+[   ◥█](fg:color_0)\
+$character\
+[◣ ](fg:color_0)
+"""
+
+[palettes.my_palette]
+color_0 = "#1f2139"  # Deep midnight blue
+color_write_0 = "#ffffff"  # White
+color_11 = "#273470"  # Lightened dark navy blue
+color_write_11 = "#ffffff"  # White
+color_12 = "#cfd8dc"  # Lightened gray-blue
+color_13 = "#86a3a4"  # Lightened blue
+color_write_13 = "#1f2139"  # Deep midnight blue
+color_21 = "#405c72"  # Darkened blue-gray
+color_write_21 = "#ffffff"  # White
+color_22 = "#7ba1b2"  # Darkened light blue-gray
+color_write_22 = "#1f2139"  # Deep midnight blue
+color_23 = "#778899"  # Slate gray
+color_write_23 = "#1c2a38"  # Very dark blue
+color_24 = "#b5b5b5"  # Light gray
+color_write_24 = "#1f2139"  # Deep midnight blue
+
+[fill]
+symbol = " "
+
+[username]
+format = "[👤$user]($style)"
+style_user = "fg:color_write_0 bg:color_0"
+style_root = "fg:red bg:color_0"
+disabled = false
+show_always = true
+aliases = {}
+
+[time]
+format = "[🕙$time]($style)"
+style = "fg:color_write_11 bg:color_11"
+time_format = '%T'
+disabled = false
+
+[cmd_duration]
+format = "[⏳$duration]($style)" 
+style = "fg:color_write_13 bg:color_13" 
+min_time = 200
+show_milliseconds = true
+
+[directory]
+format = "[📂 $path]($style)[$read_only]($read_only_style)"
+truncation_length = 5
+truncation_symbol = "…/"
+truncate_to_repo = true
+
+home_symbol = "🏠"
+style = "fg:color_write_21 bg:color_21"
+
+read_only = " 🔒" 
+read_only_style = "bg:color_21"
+
+[directory.substitutions]
+"Coding" = "📟"
+".config" = "🛠️"
+"Documents" = "💼"
+"Desktop" = "🖼️"
+"Downloads" = "📥"
+"Games" = "🎮"
+"Music" = "🎵"
+"Pictures" = "📷"
+"Videos" = "🎥"
+"Utils" = "🧰"
+
+[character]
+format = "$symbol"
+success_symbol = "[💪👉](bg:color_0)"
+error_symbol = "[❗error❗](fg:#ff0000 bg:color_0)"
+
+[git_branch]
+format = "[ $symbol $branch ]($style)"
+style = "fg:color_write_22 bg:color_22"
+symbol = ""
+
+[git_status]
+format = "[$all_status$ahead_behind]($style)"
+style = "fg:color_write_23 bg:color_23"
+
+[docker_context]
+format = "[ $symbol $context ]($style)"
+style = "fg:color_write_24 bg:color_24"
+symbol = " "
+
+[c]
+format = "[$symbol($version) ]($style)"
+style = "fg:#1548b3 bg:color_12"
+symbol = " "
+
+[python]
+format = "[$symbol($version) ]($style)"
+style = "#afa500 bg:color_12"
+symbol = " "
+pyenv_version_name = false
+
+[java]
+format = "[$symbol($version) ]($style)"
+style = "fg:#b12615 bg:color_12"
+symbol = " "
+
+[golang]
+format = "[$symbol($version) ]($style)"
+style = "fg:#28cfda bg:color_12"
+symbol = " "
+
+[dart]
+format = "[$symbol($version) ]($style)"
+style = "fg:#3a84e0 bg:color_12"
+symbol = " "

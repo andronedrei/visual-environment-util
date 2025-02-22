@@ -2,7 +2,7 @@
 
 options="🔴\n🔁\n⏸️"
 
-selection=$(echo -e "$options" | rofi -dmenu)
+selection=$(echo -e "$options" | rofi -dmenu -theme ~/.config/rofi/simple.rasi)
 
 case "$selection" in
     "🔴")

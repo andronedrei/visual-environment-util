@@ -6,14 +6,14 @@ scripts=$(cat ~/.veu-toolbox/computer-scripts-list)
 
 # in case file with scripts was lost we restore it from backup
 if [ -z "$scripts" ]; then
-    scripts=$(cat ~/.veu-toolbox/computer-scripts-list.backup)
+    scripts=$(cat ~/.veu-toolbox/.computer-scripts-list.backup)
     echo "$scripts" > ~/.veu-toolbox/computer-scripts-list
 fi
 
 scripts_names=$(echo "$scripts" | xargs -n 1 basename)
 
 # we select a script option
-selected=$(echo -e "$scripts_names" | rofi -dmenu -p "Select a script: " -theme ~/.config/rofi/simple.rasi)
+selected=$(echo -e "$scripts_names" | rofi -dmenu -p "Select a script" -theme ~/.config/rofi/simple.rasi)
 
 #if a valid script is selected
 if [ -n "$selected" ]; then
