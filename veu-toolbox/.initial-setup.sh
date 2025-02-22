@@ -6,7 +6,12 @@ if [ "$last_dir" != "veu-toolbox" ]; then
     exit 1
 fi
 
-#sudo pacman -Syu
+sudo pacman -Syu
+# installing hypr envirnment elements
+echo "Installing hyprland required packages ..."
+sleep 1
+sudo pacman -S hyprland
+sudo pacman -S rofi-wayland waybar chrono-date hyprpaper
 
 # updating paths fot the location the util was downloaded to
 ./update-path
@@ -31,5 +36,11 @@ if [ $use_custom_collection == "yes" ]; then
 else
     echo "$main_dir/backgrounds" > .backgrounds-dir-location
 fi
+
+# starship
+echo "Installing starship ..."
+sleep 1
+sudo pacman -S starship
+cp "$main_dir/configs/starship/blue-emoji-fun/starship.toml ~/.config/starship.toml
 
 reboot
