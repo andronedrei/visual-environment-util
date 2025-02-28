@@ -11,9 +11,14 @@ sudo pacman -Syu
 echo "Installing hyprland required packages ..."
 sleep 1
 sudo pacman -S hyprland
-sudo pacman -S rofi-wayland waybar chrono-date hyprpaper
+sudo pacman qt5-wayland qt6-wayland xdg-desktop-portal-hyprland
+yay -S hyprpolkitagent
+yay -S hyprshot
+sudo pacman -S rofi-wayland waybar hyprpaper dunst wl-clipboard cliphist # chrono-date ?
 
 # updating paths fot the location the util was downloaded to
+echo "Making configuration changes"
+sleep 1
 ./update-path
 main_dir=$(cat .main-dir-location)
 
@@ -38,9 +43,17 @@ else
 fi
 
 # starship
-echo "Installing starship ..."
-sleep 1
-sudo pacman -S starship
-cp "$main_dir/configs/starship/blue-emoji-fun/starship.toml ~/.config/starship.toml
+echo "Do you want to install starship?"
+echo "Important: Don't forget to add the following line to your default shell configuration file:"
+echo 'export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"'
+echo "This will ensure that Starship uses your custom configuration on startup."
+echo "Type "yes" to do it or everything else to not do it"
+read install_starship
+if [ $install_starship == "yes" ]; then
+    echo "Installing starship ..."
+    sleep 1
+    sudo pacman -S starship
+    cp --parents "$main_dir/configs/starship/blue-emoji-fun/starship.toml ~/.config/starship/"
+fi
 
 reboot
