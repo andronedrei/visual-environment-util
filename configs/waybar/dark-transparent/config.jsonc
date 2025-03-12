@@ -93,7 +93,7 @@
   },
 
   "pulseaudio": {
-    "format": " {volume}%",
+    "format": "🔈{volume}%",
     "on-click": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
     "on-click-right": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
     "tooltip": false

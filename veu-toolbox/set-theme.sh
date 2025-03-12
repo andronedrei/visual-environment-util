@@ -32,5 +32,8 @@ rm ~/.config/waybar
 ln -s "$base_dir/configs/waybar/$selection" ~/.config/waybar
 rm ~/.config/rofi
 ln -s "$base_dir/configs/rofi/$selection" ~/.config/rofi
+rm ~/.config/dunst
+ln -s "$base_dir/configs/dunst/$selection" ~/.config/dunst
 
 pkill waybar && hyprctl dispatch exec waybar
+pkill dunst && hyprctl dispatch exec dunst
