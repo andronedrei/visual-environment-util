@@ -23,7 +23,7 @@ set_contrast() {
     ddcutil setvcp 0x12 "$selection"
 }
 
-selection=$(echo -e "$options" | rofi -dmenu -p "Select monitor setting" -theme ~/.config/rofi/simple.rasi)
+selection=$(echo -e "$options" | rofi -dmenu -p -theme ~/.config/rofi/compact.rasi)
 
 case "$selection" in
     "brightness")

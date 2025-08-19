@@ -1,2 +1,2 @@
-// selecting one of the already defined themes
+// the default config for app selection (selecting an already existinfg theme)
 @theme "/usr/share/rofi/themes/fullscreen-preview.rasi"

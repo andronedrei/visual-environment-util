@@ -23,6 +23,7 @@
     "network",
     "battery",
     "custom/monitor",
+    "custom/audio_icon",
     "pulseaudio",
     "clock",
     "custom/power"
@@ -63,7 +64,7 @@
  
   "network": {
     "format-disconnected": "❌ No Network",
-    "format-wifi": " {essid} ↑{bandwidthUpBits} ↓{bandwidthDownBits}",
+    "format-wifi": "ᯤ {essid} ↑{bandwidthUpBits} ↓{bandwidthDownBits}",
     "format-ethernet": "🖧 {ifname} ↑{bandwidthUpBits} ↓{bandwidthDownBits}",
     "tooltip-format": "{ifname} - {ipaddr}",
     "max-length": 27,
@@ -92,8 +93,14 @@
     "interval": -1
   },
 
+  "custom/audio_icon": {
+    "format":"  ",
+    "tooltip": false,
+    "interval": -1
+  },
+
   "pulseaudio": {
-    "format": " {volume}%",
+    "format": "{volume}%",
     "on-click": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
     "on-click-right": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
     "tooltip": false

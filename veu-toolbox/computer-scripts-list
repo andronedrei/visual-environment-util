@@ -1,3 +1,6 @@
 /home/andrei/Utils/visual-environment-util/veu-toolbox/set-theme.sh
 /home/andrei/Utils/visual-environment-util/veu-toolbox/set-current-background.sh
 /home/andrei/Utils/visual-environment-util/veu-toolbox/set-startup-background.sh
+/home/andrei/Utils/visual-environment-util/veu-toolbox/set-prompt.sh
+/home/andrei/Utils/make-backup.sh
+/home/andrei/Utils/run-fun-app.sh
