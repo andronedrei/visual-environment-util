@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # we read the list with themes
-themes=$(cat ~/.veu-toolbox/themes-list)
+themes=$(cat ~/.veu-toolbox/.themes-list)
 
 # in case it was lost we restore it from backup
 if [ -z "$themes" ]; then
   themes=$(cat ~/.veu-toolbox/.themes-list.backup)
-  echo "$themes" > ~/.veu-toolbox/themes-list
+  echo "$themes" > ~/.veu-toolbox/.themes-list
 fi
 
 # We select theme option
@@ -23,7 +23,7 @@ fi
 
 # we delete "*"(mark symbol) from previous selection and add it to the new one
 themes=$(echo "$themes" | sed "s/ \*//g" | sed "s/$selection/$selection \*/g")
-echo "$themes" > ~/.veu-toolbox/themes-list
+echo "$themes" > ~/.veu-toolbox/.themes-list
 
 base_dir=$(cat ~/.veu-toolbox/.main-dir-location)
 

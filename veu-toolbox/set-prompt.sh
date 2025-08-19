@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # we read the list with prompts
-prompts=$(cat ~/.veu-toolbox/prompts-list)
+prompts=$(cat ~/.veu-toolbox/.prompts-list)
 
 # in case it was lost we restore it from backup
 if [ -z "$prompts" ]; then
@@ -23,7 +23,7 @@ fi
 
 # we delete "*"(mark symbol) from previous selection and add it to the new one
 prompts=$(echo "$prompts" | sed "s/ \*//g" | sed "s/$selection/$selection \*/g")
-echo "$prompts" > ~/.veu-toolbox/prompts-list
+echo "$prompts" > ~/.veu-toolbox/.prompts-list
 
 base_dir=$(cat ~/.veu-toolbox/.main-dir-location)
 

@@ -23,20 +23,16 @@ window {
 mainbox {
   orientation: vertical;
   spacing: 0.6em;
-  expand: false;
+  expand: true;
   children: [ listview ];
 }
 
 listview {
-  columns: 1;
-  fixed-columns: true;
-  flow: vertical;
-  lines: 3;                    /* adjust to how many items you expect */
-  spacing: 0.4em;
-  scrollbar: false;
-  dynamic: false;
+  lines: 8;
+  dynamic: true;
+  fixed-height: false;
   expand: false;
-  horizontal-align: 0.5;        /* center items horizontally */
+  scrollbar: true;
 }
 
 element {

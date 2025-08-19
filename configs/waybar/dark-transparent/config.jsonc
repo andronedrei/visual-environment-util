@@ -7,7 +7,7 @@
   "mode": "dock",
 
   "modules-left": [
-    "image#arch_menu",
+    "image#arch_config",
     "custom/app_launcher",
     "custom/script_launcher",
 	  "hyprland/workspaces",
@@ -29,10 +29,10 @@
     "custom/power"
   ],
 
-  "image#arch_menu": {
+  "image#arch_config": {
     "path": "/home/andrei/.config/waybar/icons/arch_menu.png",
     "size": 30,
-    "on-click": "rofi -show drun",
+    "on-click": "/home/andrei/.config/waybar/scripts/arch-config.sh",
     "interval": -1
   },
 
@@ -95,6 +95,7 @@
 
   "custom/audio_icon": {
     "format":"  ",
+    "on-click": "pavucontrol",
     "tooltip": false,
     "interval": -1
   },

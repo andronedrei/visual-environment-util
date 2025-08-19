@@ -23,28 +23,24 @@ window {
 mainbox {
   orientation: vertical;
   spacing: 0.6em;
-  expand: false;
+  expand: true;
   children: [ listview ];
 }
 
 listview {
-  columns: 1;
-  fixed-columns: true;
-  flow: vertical;
-  lines: 3;                    /* adjust to how many items you expect */
-  spacing: 0.4em;
-  scrollbar: false;
-  dynamic: false;
+  lines: 8;
+  dynamic: true;
+  fixed-height: false;
   expand: false;
-  horizontal-align: 0.5;        /* center items horizontally */
+  scrollbar: true;
 }
 
 element {
   padding: 0.2em 0.8em;
   border: 2px;
   border-radius: 0.35em;
-  background-image: linear-gradient(rgba(199,171,122,0.05), rgba(199,171,122,0.18));
-  border-color: rgba(199,171,122,0.15);
+  background-image: linear-gradient(rgba(118, 133, 33, 0.05), rgba(48, 116, 51, 0.18));
+  border-color: rgba(83, 94, 54, 0.15);
   children: [ element-text ];   /* no icon */
 }
 
@@ -54,6 +50,6 @@ element-text {
 }
 
 element selected {
-  background-image: linear-gradient(rgba(199,171,122,0.28), rgba(199,171,122,0.10));
-  border-color: rgba(199,171,122,0.45);
+  background-image: linear-gradient(rgba(226, 238, 229, 0.28rgba(31, 21, 16, 0.1).1));
+  border-color: rgba(128, 105, 7, 0.45);
 }

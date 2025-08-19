@@ -19,7 +19,7 @@ set_contrast() {
     local cur_value=$(ddcutil getvcp 0x12 | sed 's/0x[0-9]*//g' | sed 's/[^[0-9,]//g' | sed 's#,#\n#g' | head -1)
     
     # set the new choosen contrast
-    local selection=$(echo -e "$options" | rofi -dmenu -p "Current brightness $cur_value" -theme ~/.config/rofi/simple.rasi)
+    local selection=$(echo -e "$options" | rofi -dmenu -p "Current contrast $cur_value" -theme ~/.config/rofi/simple.rasi)
     ddcutil setvcp 0x12 "$selection"
 }
 
