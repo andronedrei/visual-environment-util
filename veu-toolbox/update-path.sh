@@ -53,9 +53,9 @@ rm ~/.veu-toolbox
 ln -s "$cur_loc" ~/.veu-toolbox
 
 # update path for essential scripts from this utility that are also used by "run-computer-script.sh"
-nr_veu_scripts="4"
-veu_essential=$(head -n "$nr_veu_scripts" ~/.veu-toolbox/computer-scripts-list)
-others=$(tail -n +"$((nr_veu_scripts + 1))" ~/.veu-toolbox/computer-scripts-list)
+nr_veu_scripts="4" # first 4 are the essential scripts
+veu_essential=$(head -n "$nr_veu_scripts" ~/.veu-toolbox/computer-scripts-list.txt)
+others=$(tail -n +"$((nr_veu_scripts + 1))" ~/.veu-toolbox/computer-scripts-list.txt)
 
 veu_essential=$(echo "$veu_essential" | xargs -n 1 basename)
 
@@ -65,6 +65,6 @@ for item in $veu_essential; do
 done
 new_veu_essential=$(echo "$new_veu_essential" | sed 's/\n$//') # remove trailing emptyline
 
-echo "$new_veu_essential" > computer-scripts-list
-echo -n "$others" >> computer-scripts-list
+echo "$new_veu_essential" > computer-scripts-list.txt
+echo -n "$others" >> computer-scripts-list.txt
 cat computer-scripts-list > .computer-scripts-list.backup

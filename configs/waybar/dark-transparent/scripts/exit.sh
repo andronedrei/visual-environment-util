@@ -2,7 +2,7 @@
 
 options="🔴 Poweroff\n🔁 Restart\n⏸️ Suspend"
 
-selection=$(echo -e "$options" | rofi -dmenu -p "Power options" -theme ~/.config/rofi/compact.rasi)
+selection=$(echo -e "$options" | rofi -dmenu -p "Power options" -theme ~/.config/rofi/simple.rasi)
 
 case "$selection" in
     "🔴 Poweroff")

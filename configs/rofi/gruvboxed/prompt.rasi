@@ -1,0 +1,42 @@
+/* centered prompt-only, very wide so long prompt fits */
+configuration { show-icons: false; }
+* { text-color: white; background-color: transparent; }
+
+window {
+  fullscreen: false;
+  location: center;
+  anchor: center;
+  width: 90%;                           /* give the bar near-full screen width */
+  background-color: rgba(48,53,54,0.92);
+  padding: 1.0em;
+  border-radius: 0.5em;
+  children: [ mainbox ];
+}
+
+mainbox { orientation: vertical; spacing: 0.6em; expand: true; children: [ inputbar ]; }
+
+inputbar { spacing: 0.4em; children: [ prompt, entry ]; }
+
+prompt {
+  padding: 0.2em 0.8em;
+  border: 2px;
+  border-radius: 0.35em 0 0 0.35em;
+  border-color: rgba(181, 184, 52, 0.18);
+  background-image: linear-gradient(rgba(118,133,33,0.06), rgba(48,116,51,0.20));
+  margin: 0;
+  border-right: 0;
+  expand: false;                        /* keep sizing predictable */
+  min-width: 48ch;                      /* reserve room for long prompt text */
+}
+
+entry {
+  padding: 0.2em 0.8em;
+  border: 2px;
+  border-radius: 0 0.35em 0.35em 0;
+  border-color: rgba(83,94,54,0.18);
+  background-image: linear-gradient(rgba(118,133,33,0.06), rgba(48,116,51,0.20));
+  margin: 0;
+  expand: true;                         /* take remaining width */
+  min-width: 32ch;                      /* ensure a decent typing field */
+  horizontal-align: 0.0;
+}

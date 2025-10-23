@@ -5,7 +5,7 @@ set-current-background
 set-startup-background
 set-prompt"
 
-selection=$(echo -e "$options" | rofi -dmenu -p "Power options" -theme ~/.config/rofi/compact.rasi)
+selection=$(echo -e "$options" | rofi -dmenu -p "Power options" -theme ~/.config/rofi/simple.rasi)
 
 case "$selection" in
     "set-theme")

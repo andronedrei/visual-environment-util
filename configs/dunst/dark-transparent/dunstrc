@@ -1,8 +1,7 @@
-# For defaults and description of each option, see the link bellow
-# https://github.com/dunst-project/dunst/blob/master/dunstrc
+# minimal dark transparent palette, rounded corners, consistent spacing
 
 [global]
-# Display
+# display
 follow = mouse
 width = 350
 height = (0, 300)
@@ -16,16 +15,21 @@ horizontal_padding = 20
 frame_width = 1
 sort = no
 
-# Progress bar
+# progress bar
+progress_bar = true
+progress_bar_height = 8
+progress_bar_min_width = 150
+progress_bar_max_width = 300
 progress_bar_frame_width = 0
 progress_bar_corner_radius = 3
+progress_bar_corners = all
 
-# Colors
+# colors
 foreground = "#cdd1dc"
 frame_color = "#2d303c"
-highlight = "#2274d5, #82aad9"
+highlight = "#82aad9"
 
-# Text
+# text
 font = Noto Sans 12
 markup = full
 format = "<small>%a</small>\n<b>%s</b>\n%b"
@@ -34,28 +38,31 @@ vertical_alignment = center
 show_age_threshold = -1
 hide_duplicate_count = false
 
-# Icon
+# icons
 icon_position = left
 min_icon_size = 54
 max_icon_size = 80
-icon_path = /usr/share/icons/Arc/status/96:/usr/share/icons/Arc/status/symbolic
 icon_corner_radius = 4
+icon_corners = all
+icon_path = /usr/share/icons/hicolor/256x256/status:/usr/share/pixmaps
 
-# Misc/Advanced
-dmenu = wofi --show drun --prompt 'Open with'
+# misc/advanced
+dmenu = wofi --show drun --prompt 'open with'
 corner_radius = 10
 
-# Mouse
+# mouse
 mouse_left_click = close_current
 mouse_middle_click = do_action, close_current
 mouse_right_click = close_all
 
 [urgency_low]
-background = "#383c4af0"
+background = "#2f3442f0"   # darker than #383c4af0
+frame_color = "#2d303c"
 timeout = 3
 
 [urgency_normal]
-background = "#383c4af0"
+background = "#2f3442f0"   # darker than #383c4af0
+frame_color = "#2d303c"
 timeout = 8
 
 [urgency_critical]
@@ -64,10 +71,10 @@ frame_color = "#ab6d6b"
 highlight = "#eb4d4b"
 timeout = 0
 
-# Rules
+# rules
 [fullscreen_delay_everything]
 fullscreen = delay
 
 [fullscreen_show_critical]
 msg_urgency = critical
-fullscreen = show%
+fullscreen = show

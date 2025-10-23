@@ -1,133 +1,130 @@
-/**
- * ROFI Color Theme
- *
- * Fullscreen theme with switchable PREVIEW option.
- * 
- * User: Dave Davenport
- * Copyright: Dave Davenport
- */
+/* fullscreen gruvbox-ish app grid with optional preview pane */
+configuration { show-icons: true; }
 
 * {
-	background-color: transparent;
-	text-color:       white;
+  background-color: transparent;
+  text-color: white;
 }
 
+/* window */
 window {
-	fullscreen:       true;
-	background-color: rgba(48, 53, 54, 0.8);  /* Dark gray background */
-	padding:          4em;
-	children:         [ wrap, listview-split];
-	spacing:          1em;
+  fullscreen: true;
+  background-color: rgba(48,53,54,0.86);
+  padding: 3em;
+  spacing: 1em;
+  children: [ wrap, listview-split ];
 }
 
+/* layout: top controls + grid */
+wrap {
+  expand: false;
+  orientation: vertical;
+  children: [ inputbar, message ];
+  background-image: linear-gradient(rgba(199,171,122,0.05), rgba(199,171,122,0.36));
+  border-color: rgba(199,171,122,0.15);
+  border: 3px;
+  border-radius: 0.4em;
+}
 
-/** We add an extra child to this is PREVIEW=true */
+/* search bar */
+inputbar {
+  spacing: 0.5em;
+  padding: 0.5em;
+  background-color: #c7ab7a;                   /* gruvbox accent */
+  children: [ prompt, entry ];
+}
+
+prompt {
+  padding: 0.1em 0.6em;
+  border: 2px;
+  border-radius: 0.3em 0 0 0.3em;
+  border-color: rgba(130,101,51,0.25);
+  background-color: transparent;
+  text-color: rgba(48,35,12,0.9);
+}
+
+entry {
+  padding: 0.1em 0.8em;
+  border: 2px;
+  border-radius: 0 0.3em 0.3em 0;
+  border-color: rgba(130,101,51,0.25);
+  background-color: rgba(255,255,255,0.06);
+  placeholder: "Search";
+  placeholder-color: rgba(130,101,51,0.7);
+}
+
+/* info/error area (kept but toned down) */
+message {
+  background-color: rgba(199,171,122,0.12);
+  border-color: rgba(199,171,122,0.35);
+  border: 2px 0 0 0;
+  padding: 0.4em;
+  spacing: 0.3em;
+}
+
+/* grid + optional preview */
 listview-split {
   orientation: horizontal;
-  spacing: 0.4em;
-  children: [listview];
+  spacing: 0.8em;
+  children: [ listview ];                      /* preview injected via @media */
 }
 
-wrap {
-	expand: false;
-	orientation: vertical;
-	children: [ inputbar, message ];
-	background-image: linear-gradient(rgba(199, 171, 122, 0.05), rgba(199, 171, 122, 0.4));
-	border-color: rgba(199, 171, 122, 0.15);
-	border: 3px;
-	border-radius: 0.4em;
-}
-
-icon-ib {
-	expand: false;
-	filename: "system-search";
-	vertical-align: 0.5;
-	horizontal-align: 0.5;
-	size: 1em;
-}
-inputbar {
-	spacing: 0.4em;
-	padding: 0.4em;
-    background-color: #c7ab7a;
-	children: [ icon-ib, entry ];
-}
-entry {
-	placeholder: "Search";
-	placeholder-color: rgba(130, 101, 51, 0.7);
-}
-message {
-	background-color: rgba(255, 0, 0, 0.8);
-	border-color: rgba(255, 105, 180, 0.9);
-	border: 3px 0px 0px 0px;
-	padding: 0.4em;
-	spacing: 0.4em;
-}
-
+/* grid settings: balanced across screens */
 listview {
-	flow: horizontal;
-	fixed-columns: true;
-	columns: 7;
-	lines: 5;
-	spacing: 1.0em;
+  flow: horizontal;
+  fixed-columns: true;
+  columns: 7;                                  /* default; overridden by media */
+  lines: 5;
+  spacing: 1.0em;
 }
 
+/* tile */
 element {
-	orientation: vertical;
-	padding: 0.1em;
-
-	background-image: linear-gradient(rgba(199, 171, 122, 0.05), rgba(199, 171, 122, 0.2));
-	border-color: rgba(199, 171, 122, 0.15);
-	border: 3px;
-	border-radius: 0em;
-
-  children: [element-icon, element-text ];
+  orientation: vertical;
+  padding: 0.35em;
+  background-image: linear-gradient(rgba(199,171,122,0.05), rgba(199,171,122,0.20));
+  border-color: rgba(199,171,122,0.15);
+  border: 2px;
+  border-radius: 0.2em;
+  children: [ element-icon, element-text ];
 }
+
 element-icon {
-	size: calc(((100% - 8em) / 7 ));
-	horizontal-align: 0.5;
-	vertical-align: 0.5;
+  size: 2.4em;                                 /* robust icon sizing */
+  horizontal-align: 0.5;
+  vertical-align: 0.5;
 }
+
 element-text {
-	horizontal-align: 0.5;
-	vertical-align: 0.5;
+  horizontal-align: 0.5;
+  vertical-align: 0.5;
   padding: 0.2em;
 }
 
 element selected {
-	background-image: linear-gradient(rgba(199, 171, 122, 0.25), rgba(199, 171, 122, 0.1));
-	border-color: rgba(199, 171, 122, 0.4);
-	border: 3px;
-	border-radius: 0em;
+  background-image: linear-gradient(rgba(199,171,122,0.25), rgba(199,171,122,0.10));
+  border-color: rgba(199,171,122,0.40);
+  border: 2px;
+  border-radius: 0.2em;
 }
 
-/**
- * Launching rofi with environment PREVIEW set to true
- * will split the screen and show a preview widget.
- */
-@media ( enabled: env(PREVIEW, false)) {
-  /** preview widget */
+/* preview mode: enable with PREVIEW=1 rofi ... */
+@media ( enabled: env(PREVIEW, false) ) {
   icon-current-entry {
-    expand:          true;
-    size:            80%;
+    expand: true;
+    size: 80%;
   }
-  listview-split {
-    children: [listview, icon-current-entry];
-  }
-  listview {
-  columns: 4;
-  }
-
+  listview-split { children: [ listview, icon-current-entry ]; }
+  listview { columns: 4; }                     /* room for preview */
 }
 
-@media ( enabled: env(NO_IMAGE, false)) {
-	listview {
-		columns: 1;
-		spacing: 0.4em;
-	}
-	element {
-		children: [ element-text ];
-	}
-	element-text {
-		horizontal-align: 0.0;
-	}
+/* compact mode: disable icons with NO_IMAGE=1 */
+@media ( enabled: env(NO_IMAGE, false) ) {
+  listview { columns: 1; spacing: 0.4em; }
+  element { children: [ element-text ]; }
+  element-text { horizontal-align: 0.0; }
 }
+
+/* responsive columns for very wide/narrow displays */
+@media ( min-width: 1800 ) { listview { columns: 10; } }
+@media ( max-width: 1100 ) { listview { columns: 5; } }

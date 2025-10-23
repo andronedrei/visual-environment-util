@@ -1,0 +1,55 @@
+/* centered prompt-only popup, long entry */
+configuration { show-icons: false; }
+
+* { text-color: white; background-color: transparent; }
+
+/* window: much wider, still centered */
+window {
+  fullscreen: false;
+  location: center;
+  anchor: center;
+  width: 80%;
+  background-color: rgba(48,53,54,0.92);
+  padding: 1.0em;
+  border-radius: 0.5em;
+  children: [ mainbox ];
+}
+
+/* only inputbar is shown */
+mainbox { orientation: vertical; spacing: 0.6em; expand: true; children: [ inputbar ]; }
+
+/* input bar: prompt + entry */
+inputbar { spacing: 0.4em; children: [ prompt, entry ]; }
+
+/* compact prompt chip */
+prompt {
+  padding: 0.2em 0.6em;
+  border: 2px;
+  border-radius: 0.35em 0 0 0.35em;
+  border-color: rgba(146,214,242,0.15);
+  background-image: linear-gradient(rgba(20,14,58,0.05), rgba(7,19,39,0.18));
+  margin: 0;
+  border-right: 0;
+  expand: false;                        /* keep prompt small */
+}
+
+/* long entry chip */
+entry {
+  padding: 0.2em 0.8em;
+  border: 2px;
+  border-radius: 0 0.35em 0.35em 0;
+  border-color: rgba(146,214,242,0.15);
+  background-image: linear-gradient(rgba(20,14,58,0.05), rgba(7,19,39,0.18));
+  margin: 0;
+  expand: true;                         /* take remaining width */
+  min-width: 64ch;                      /* guaranteed typing space */
+  ellipsize: false;                     /* scroll text instead of compressing */
+  horizontal-align: 0.0;                /* left-align typing */
+}
+
+/* active entry feedback */
+entry selected {
+  border-color: rgba(146,214,242,0.45);
+  background-image: linear-gradient(rgba(28,32,85,0.28), rgba(21,50,148,0.10));
+}
+

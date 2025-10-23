@@ -6,22 +6,25 @@
   "name": "dark-transparent",
   "mode": "dock",
 
+  "expand-center": true,
+  "spacing": 0,
+
   "modules-left": [
     "image#arch_config",
     "custom/app_launcher",
     "custom/script_launcher",
-	  "hyprland/workspaces",
+    "hyprland/workspaces",
     "custom/cpu_icon",
     "cpu",
     "memory",
     "custom/mem_icon"
   ],
 
-  "modules-center": [],
+  "modules-center": ["custom/spacer"],
 
   "modules-right": [
     "network",
-    "battery",
+    "upower",
     "custom/monitor",
     "custom/audio_icon",
     "pulseaudio",
@@ -50,51 +53,37 @@
     "tooltip": false
   },
 
-  "custom/cpu_icon": {
-    "format":"  ",
-    "tooltip": false,
-    "interval": -1
-  },
+  "custom/cpu_icon": { "format": "  ", "tooltip": false, "interval": -1 },
+  "custom/mem_icon": { "format": "  ", "tooltip": false, "interval": -1 },
 
-  "custom/mem_icon": {
-    "format":"  ",
-    "tooltip": false,
-    "interval": -1
-  },
- 
+  "custom/spacer": { "format": "", "interval": -1, "tooltip": false },
+
   "network": {
-    "format-disconnected": "❌ No Network",
-    "format-wifi": "ᯤ {essid} ↑{bandwidthUpBits} ↓{bandwidthDownBits}",
-    "format-ethernet": "🖧 {ifname} ↑{bandwidthUpBits} ↓{bandwidthDownBits}",
-    "tooltip-format": "{ifname} - {ipaddr}",
-    "max-length": 27,
-    "min-length": 27,
+    "format-wifi": " {essid} ↑{bandwidthUpBits} ↓{bandwidthDownBits}",
+    "format-ethernet": "🖧 ↑{bandwidthUpBits} ↓{bandwidthDownBits}",
+    "format-disconnected": "",
+    "tooltip-format": "{ifname} {ipaddr}",
+    "max-length": 24,
     "interval": 3,
-    "tooltip": false
+    "tooltip": true
   },
 
-  "battery": {
-    "bat": "BAT2",
-    "interval": 60,
-    "states": {
-        "warning": 30,
-        "critical": 15
-    },
-    "format": "{capacity}% {icon}",
-    "format-icons": ["", "", "", "", ""],
-    "max-length": 25,
-    "tooltip": false
+  "upower": {
+    "hide-if-empty": true,
+    "format": "{percentage}% {icon}",
+    "format-icons": ["","","","",""],
+    "max-length": 6
   },
 
-  "custom/monitor": { 
-    "format":" ",
+  "custom/monitor": {
+    "format": " ",
     "on-click": "/home/andrei/.config/waybar/scripts/monitor-settings.sh",
     "tooltip": false,
     "interval": -1
   },
 
   "custom/audio_icon": {
-    "format":"  ",
+    "format": "  ",
     "on-click": "pavucontrol",
     "tooltip": false,
     "interval": -1
@@ -110,7 +99,7 @@
   "clock": {
     "interval": 60,
     "format": "{:%H:%M}",
-    "length": 25,
+    "max-length": 5,
     "tooltip": false
   },
 

@@ -1,26 +1,25 @@
-/* Minimal styling */
+/* minimal styling */
 * {
   color: aliceblue;
   font-family: Liberation Mono;
   font-size: 16px;
-
   border-radius: 0;
 }
 
-window#waybar {
-  background: transparent;
-}
+/* waybar window */
+window#waybar { background: transparent; }
+window#waybar.hidden { opacity: 0.2; }
 
-window#waybar.hidden {
-  opacity: 0.2;
-}
+#network, #upower, #custom-monitor, #custom-audio_icon, #pulseaudio, #clock,
+#custom-app_launcher, #custom-script_launcher, #custom-cpu_icon, #cpu, #memory, #custom-mem_icon,
+#workspaces, #workspaces button, #custom-power { margin: 0; }
 
+/* left-side parts */
 #custom-app_launcher {
   margin-left: 8px;
   padding-left: 10px;
   padding-right: 8px;
-  border-radius: 8px 0px 0px 8px;
-
+  border-radius: 8px 0 0 8px;
   background-color: rgb(14, 14, 16);
   border-right: 1px solid aliceblue;
 }
@@ -28,38 +27,20 @@ window#waybar.hidden {
 #custom-script_launcher {
   padding-left: 8px;
   padding-right: 10px;
-  border-radius: 0px 8px 8px 0px;
-
-  background-color: rgb(14, 14, 16);
-}
-
-#workspaces {
-  margin-left: 8px;
-  margin-right: 8px;
-  background: transparent;
-}
-
-#workspaces button {
-  background-color: rgb(14, 14, 16);
-}
-
-#workspaces button:first-child {
-  border-radius: 8px 0 0 8px;
-}
-
-#workspaces button:last-child {
   border-radius: 0 8px 8px 0;
+  background-color: rgb(14, 14, 16);
 }
 
-#workspaces button.active {
-  background-color: rgb(45, 45, 75);
-}
+#workspaces { margin-left: 8px; margin-right: 8px; background: transparent; }
+#workspaces button { background-color: rgb(14, 14, 16); }
+#workspaces button:first-child { border-radius: 8px 0 0 8px; }
+#workspaces button:last-child { border-radius: 0 8px 8px 0; }
+#workspaces button.active { background-color: rgb(45, 45, 75); }
 
 #custom-cpu_icon {
   padding-left: 8px;
   padding-right: 8px;
-  border-radius: 8px 0px 0px 8px;
-
+  border-radius: 8px 0 0 8px;
   background-image: url("/home/andrei/.config/waybar/icons/cpu.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -69,7 +50,6 @@ window#waybar.hidden {
 #cpu {
   padding-left: 5px;
   padding-right: 8px;
-
   background-color: rgb(14, 14, 16);
   border-right: 1px solid aliceblue;
 }
@@ -77,62 +57,41 @@ window#waybar.hidden {
 #memory {
   padding-left: 8px;
   padding-right: 5px;
-
   background-color: rgb(14, 14, 16);
 }
 
 #custom-mem_icon {
   padding-left: 8px;
   padding-right: 8px;
-  border-radius: 0px 8px 8px 0px;
-
+  border-radius: 0 8px 8px 0;
   background-image: url("/home/andrei/.config/waybar/icons/mem.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-#user {
-  margin-left: 8px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 8px 8px 8px 8px;
-
-  background-color: rgb(14, 14, 16);
-}
-
+/* right-side parts */
 #network {
   padding-left: 10px;
-  padding-right: 15px;
-  border-radius: 8px 0px 0px 8px;
-
+  padding-right: 10px;
+  border-radius: 8px 0 0 8px;
   background-color: rgb(14, 14, 16);
   border-right: 0.5px solid aliceblue;
 }
 
-#custom-audio_icon {
+#upower {
   padding-left: 10px;
-  padding-right: 0px;
-
-  background-color: rgb(14, 14, 16);
-  background-image: url("/home/andrei/.config/waybar/icons/audio.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; /* match others */
-}
-
-#battery, #pulseaudio {
-  padding-left: 4px;
-  padding-right: 8px;
-
+  padding-right: 10px;
   background-color: rgb(14, 14, 16);
   border-right: 0.5px solid aliceblue;
 }
 
+/* monitor settings icon: add side padding and keep divider after it */
 #custom-monitor {
-  padding-left: 15px;
-  padding-right: 15px;
-
+  padding-left: 8px;
+  padding-right: 8px;
+  min-width: 22px;
+  background-color: rgb(14, 14, 16);
   background-image: url("/home/andrei/.config/waybar/icons/monitor-settings.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -140,19 +99,43 @@ window#waybar.hidden {
   border-right: 0.5px solid aliceblue;
 }
 
+/* audio icon and volume: no divider between them and tighter gap */
+#custom-audio_icon {
+  padding-left: 8px;
+  padding-right: 6px;
+  background-color: rgb(14, 14, 16);
+  background-image: url("/home/andrei/.config/waybar/icons/audio.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-right: none;
+}
+
+#pulseaudio {
+  padding-left: 6px;
+  padding-right: 10px;
+  background-color: rgb(14, 14, 16);
+  border-right: 0.5px solid aliceblue;
+}
+
 #clock {
   padding-left: 10px;
   padding-right: 10px;
-  border-radius: 0px 8px 8px 0px;
-
+  border-radius: 0 8px 8px 0;
   background-color: rgb(14, 14, 16);
 }
 
+/* upower charge state colors */
+#upower.charging { color: #8bd5ca; }
+#upower.discharging { color: #f5a97f; }
+#upower.full { color: #a6da95; }
+#upower.empty { color: #ed8796; }
+
+/* power button */
 #custom-power {
   margin-left: 10px;
   padding: 4px;
   border-radius: 8px;
-
   background-color: rgb(14, 14, 16);
   font-size: 20px;
 }

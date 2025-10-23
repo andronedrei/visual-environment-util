@@ -58,4 +58,3 @@ fi
 
 # reboot
 
-ln -s "$base_dir/resources/icons" ~/.icons
